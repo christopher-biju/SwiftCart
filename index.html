@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Organisation Navbar</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!--  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.css"
+        integrity="sha512-x9WwyMYBnlXMNQ6kQ/Lyzu1NqIhLQKL5Oq6xByfXuRj7s9CskyCbLv/1IjqzJmXwFXWr0ov6jBV7Qbc0hh9nHg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <!-- nav -->
+    <nav class="navbar navbar-expand-lg  ">
+        <div class="container-fluid">
+            <a class="navbar-brand d-flex align-items-center gap-2" href="#">
+                <img src="https://img.magnific.com/premium-vector/beautiful-unique-logo-design-ecommerce-retail-company_1287271-57691.jpg?semt=ais_hybrid&w=740&q=80"
+                    alt="Logo" width="40" height="40">
+                <span class="fw-bold fs-2">SwiftCart</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent"
+                aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarContent">
+                <ul class="navbar-nav ms-auto align-items-lg-center me-lg-3">
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="">Contact Us</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Search Bar  -->
+    <section class="category-section py-3 ">
+        <div class="container-fluid px-4">
+            <div class="d-flex align-items-center justify-content-between gap-3 flex-wrap">
+                <!-- Search Bar -->
+                <form class="d-flex search-form" role="search">
+                    <input type="search" class="form-control search-input w-100" placeholder="Search products..."
+                        aria-label="Search products">
+                    <button class="serbt btn btn-dark ms-2" type="submit">
+                        Search
+                    </button>
+                </form>
+                <!--  Buttons -->
+                <div class="d-flex align-items-center gap-2 flex-wrap category-buttons">
+                    <button class="category-btn " type="button">All</button>
+                    <button class="category-btn" type="button">Apparel</button>
+                    <button class="category-btn" type="button">Bags</button>
+                    <button class="category-btn" type="button">Footwear</button>
+                    <button class="category-btn" type="button">Home</button>
+                    <button class="category-btn" type="button">Kitchen</button>
+                    <button class="category-btn" type="button">Stationery</button>
+                    <button class="addbt category-btn" type="button" data-bs-toggle="modal"
+                        data-bs-target="#addProductModal"><i class="fa-solid fa-plus me-2"></i>Add
+                        product</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Modal -->
+    <div class="modal fade" id="addProductModal" tabindex="-1" aria-labelledby="addProductLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content product-modal">
+                <!-- Modal Header -->
+                <div class="modal-header border-0 pb-1">
+                    <div>
+                        <h4 class="modal-title" id="addProductLabel">
+                            Add a product
+                        </h4>
+                        <p class="modal-subtitle mb-0">
+                            Fill in the details to add it to the catalog.
+                        </p>
+                    </div>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <!-- Modal Form -->
+                <div class="modal-body pt-3">
+                    <form id="addProductForm">
+                        <input type="hidden" id="editIndex" value="-1">
+                        <!-- Product Name -->
+                        <div class="mb-3">
+                            <label for="productName" class="form-label">Name</label>
+                            <input type="text" class="form-control" id="productName" placeholder="Merino Wool Sweater"
+                                required>
+                        </div>
+                        <div class="row g-3">
+                            <!-- Category -->
+                            <div class="col-md-6">
+                                <label for="productCategory" class="form-label">
+                                    Category
+                                </label>
+                                <select class="form-select" id="productCategory" required>
+                                    <option value="General">General</option>
+                                    <option value="Apparel">Apparel</option>
+                                    <option value="Bags">Bags</option>
+                                    <option value="Footwear">Footwear</option>
+                                    <option value="Home">Home</option>
+                                    <option value="Kitchen">Kitchen</option>
+                                    <option value="Stationery">Stationery</option>
+                                </select>
+                            </div>
+                            <!-- Price -->
+                            <div class="col-md-6">
+                                <label for="productPrice" class="form-label">
+                                    Price (USD)
+                                </label>
+                                <input type="number" class="form-control" id="productPrice" placeholder="0.00" min="0"
+                                    step="0.01" required>
+                            </div>
+                            <!-- SKU -->
+                            <div class="col-md-6">
+                                <label for="productSKU" class="form-label">SKU</label>
+                                <input type="text" class="form-control" id="productSKU" placeholder="APP-MWS-001"
+                                    required>
+                            </div>
+                            <!-- Image URL -->
+                            <div class="col-md-6">
+                                <label for="productImage" class="form-label">
+                                    Image URL
+                                </label>
+                                <input type="url" class="form-control" id="productImage" placeholder="https://..."
+                                    required>
+                            </div>
+                            <!-- Description -->
+                            <div class="col-12">
+                                <label for="productDescription" class="form-label">
+                                    Description
+                                </label>
+                                <textarea class="form-control" id="productDescription" rows="3"
+                                    placeholder="A short line about the product..." required></textarea>
+                            </div>
+                        </div>
+                        <!-- Footer Buttons -->
+                        <div class="d-flex justify-content-end gap-3 mt-4">
+                            <button type="button" class="btn cancel-btn" data-bs-dismiss="modal">
+                                Cancel
+                            </button>
+                            <button type="submit" class="addprobt btn add-product-btn">
+                                Add product
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- card -->
+    <div class="container-fluid px-4 px-lg-5 py-4">
+        <div class="row g-4" id="productlist">
+
+        </div>
+    </div>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+<script src="./main.js"></script>
+
+</html>
